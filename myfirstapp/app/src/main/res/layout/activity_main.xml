@@ -15,12 +15,13 @@
         android:text="性別"
         android:textSize="25sp" />
 
-    <EditText
-        android:id="@+id/edtSex"
+    <Spinner
+        android:id="@+id/spnSex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/edtSex"
-        android:inputType="textPersonName" />
+        android:entries="@array/sex_list"
+        android:spinnerMode="dialog"
+        tools:prompt="@string/spn_sex_list_prompt" />
 
     <TextView
         android:id="@+id/textView3"

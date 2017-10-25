@@ -4,14 +4,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     EditText mEdtSex,mEdtAge;
     TextView mTxtR;
     Button mBtnok;
+    private Spinner mSpnSex;
+    private String msSex;
 
 
     @Override
@@ -20,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mEdtAge=(EditText)findViewById(R.id.edtAge);
-        mEdtSex=(EditText)findViewById(R.id.edtAge);
+        //mEdtSex=(EditText)findViewById(R.id.edtAge);
         mBtnok=(Button)findViewById(R.id.btnOK);
         mTxtR=(TextView)findViewById(R.id.txtR);
+        mSpnSex=(Spinner)findViewById(R.id.spnSex);
+        mSpnSex.setOnItemSelectedListener(spnSexonItemSelectedListener);
 
         mBtnok.setOnClickListener(btnOKOnClick);
 
@@ -32,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
    private  View.OnClickListener btnOKOnClick=new View.OnClickListener() {
        @Override
        public void onClick(View v) {
-           String strSex=mEdtSex.getText().toString();
+           //String strSex=mEdtSex.getText().toString();
            int iAge=Integer.parseInt(mEdtAge.getText().toString());
            String  strSug =getString(R.string.suggestion);
-           if (strSex.equals(getString(R.string.sex_male))) {
+           if (msSex.equals(getString(R.string.sex_male))) {
                if (iAge < 28) {
                    strSug += getString(R.string.sug_not_hurry);
                    Log.d("Marrisug", "man,don't hurry");
@@ -70,5 +76,18 @@ public class MainActivity extends AppCompatActivity {
        }
    };
 
+    private AdapterView.OnItemSelectedListener spnSexonItemSelectedListener = new AdapterView.OnItemSelectedListener() {
+
+       @Override
+       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+           msSex =parent.getSelectedItem().toString();
+       }
+
+       @Override
+       public void onNothingSelected(AdapterView<?> parent) {
+
+       }
+   };
 
 }
