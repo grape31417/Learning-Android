@@ -1,5 +1,6 @@
 package com.example.bluedream.myfirstapp;
 
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
     EditText mEdtSex,mEdtAge;
     TextView mTxtR;
     Button mBtnok;
-    private Spinner mSpnSex;
-    private String msSex;
+    private RadioGroup mRadGrpSex,mRadGrpAge;
+    private RadioButton mRadBtnAgeRange1,mRadBtnAgeRange2,mRadBtnAgeRange3;
+
 
 
     @Override
@@ -23,12 +27,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mEdtAge=(EditText)findViewById(R.id.edtAge);
-        //mEdtSex=(EditText)findViewById(R.id.edtAge);
+
         mBtnok=(Button)findViewById(R.id.btnOK);
         mTxtR=(TextView)findViewById(R.id.txtR);
-        mSpnSex=(Spinner)findViewById(R.id.spnSex);
-        mSpnSex.setOnItemSelectedListener(spnSexonItemSelectedListener);
+        mRadGrpAge=(RadioGroup)findViewById(R.id.radGrpAge) ;
+        mRadGrpSex=(RadioGroup)findViewById(R.id.radGrpSex) ;
+        mRadBtnAgeRange1=(RadioButton) findViewById(R.id.radBtnAgeRange1);
+        mRadBtnAgeRange2=(RadioButton) findViewById(R.id.radBtnAgeRange2);
+        mRadBtnAgeRange3=(RadioButton) findViewById(R.id.radBtnAgeRange3);
+        mRadGrpSex.setOnCheckedChangeListener(radGrpSexOnCheckChange);
+
 
         mBtnok.setOnClickListener(btnOKOnClick);
 
@@ -38,56 +46,43 @@ public class MainActivity extends AppCompatActivity {
    private  View.OnClickListener btnOKOnClick=new View.OnClickListener() {
        @Override
        public void onClick(View v) {
-           //String strSex=mEdtSex.getText().toString();
-           int iAge=Integer.parseInt(mEdtAge.getText().toString());
            String  strSug =getString(R.string.suggestion);
-           if (msSex.equals(getString(R.string.sex_male))) {
-               if (iAge < 28) {
-                   strSug += getString(R.string.sug_not_hurry);
-                   Log.d("Marrisug", "man,don't hurry");
-               } else if (iAge > 33) {
-                   strSug += getString(R.string.sug_get_married);
-                   Log.d("Marrisug", "man, hurry to get married!");
-               } else {
-                   strSug += getString(R.string.sug_find_couple);
-                   Log.d("Marrisug", "man,start to find girl friend");
-               }
-           }
-           else{
-               if (iAge < 28)
-               {
-                   strSug += getString(R.string.sug_not_hurry);
-                   Log.d("Marrisug", "woman,don't hurry");
-               }
-               else if (iAge > 33)
-               {
-                   strSug += getString(R.string.sug_get_married);
-                   Log.d("Marrisug", "woman, hurry to get married!");
-               }
-               else
-               {
-                   strSug += getString(R.string.sug_find_couple);
-                   Log.d("Marrisug", "woman,start to find boy friend");
-               }
-           }
+           switch (mRadGrpAge.getCheckedRadioButtonId())
+           {
+               case R.id.radBtnAgeRange1:
+                   strSug+=getString(R.string.sug_not_hurry);
+                   break;
+               case R.id.radBtnAgeRange2:
+                   strSug+=getString(R.string.sug_find_couple);
+                   break;
+               case R.id.radBtnAgeRange3:
+                   strSug+=getString(R.string.sug_get_married);
+                   break;
 
-           mTxtR.setText(strSug);
+           }
+        mTxtR.setText(strSug);
 
        }
    };
 
-    private AdapterView.OnItemSelectedListener spnSexonItemSelectedListener = new AdapterView.OnItemSelectedListener() {
+private RadioGroup.OnCheckedChangeListener radGrpSexOnCheckChange =new RadioGroup.OnCheckedChangeListener() {
+    @Override
+    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+        if (checkedId==R.id.radBtnMale)
+        {
+            mRadBtnAgeRange1.setText(getString(R.string.male_age_range1));
+            mRadBtnAgeRange2.setText(getString(R.string.male_age_range2));
+            mRadBtnAgeRange3.setText(getString(R.string.male_age_range3));
+        }
+        else
+        {
+            mRadBtnAgeRange1.setText(getString(R.string.female_age_range1));
+            mRadBtnAgeRange2.setText(getString(R.string.female_age_range2));
+            mRadBtnAgeRange3.setText(getString(R.string.female_age_range3));
 
-       @Override
-       public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        }
 
-           msSex =parent.getSelectedItem().toString();
-       }
-
-       @Override
-       public void onNothingSelected(AdapterView<?> parent) {
-
-       }
-   };
+    }
+};
 
 }
