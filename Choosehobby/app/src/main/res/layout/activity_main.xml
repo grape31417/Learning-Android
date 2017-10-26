@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/checkBoxMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/music"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxWriting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/writing"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxClimb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/climbing"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxSing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sing"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxDance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dance"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxTravel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/travel"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxReadding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/readding"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxSwim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/swim"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxFitness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fitness"
+            android:textSize="30sp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/photo"
+            android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxEat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eating"
+            android:textSize="30sp" />
+        <CheckBox
+        android:id="@+id/checkBoxPanting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/panting"
+        android:textSize="30sp" />
+        <CheckBox
+            android:id="@+id/checkBoxExcise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exerice"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ok" />
+
+        <TextView
+            android:id="@+id/textHobby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>
