@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">猜拳遊戲</string>
+    <string name="action_seting">Seting</string>
+    <string name="com_play">電腦出拳:</string>
+    <string name="my_play">玩家出拳:</string>
+    <string name="scissors">剪刀</string>
+    <string name="stone">石頭</string>
+    <string name="paper">布</string>
+    <string name="you_win">你贏了</string>
+    <string name="you_lose">你輸了</string>
+    <string name="draw">平手</string>
+    <string name="title">和電腦猜拳</string>
+    <string name="result">判定輸贏:</string>
+    <string name="total_set">全部局數:</string>
+    <string name="player_win_set">玩家贏:</string>
+    <string name="com_win_set">電腦贏:</string>
+    <string name="draw_set">平手:</string>
+
+</resources>
