@@ -27,9 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtTitle"
         android:layout_below="@+id/txtTitle"
-        android:textSize="20sp"
         android:layout_marginBottom="20dp"
-        android:text="@string/com_play" />
+        android:text="@string/com_play"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/txt_myplay"
@@ -41,53 +41,54 @@
         android:layout_marginBottom="20dp"
         android:text="@string/my_play" />
 
-    <Button
-        android:id="@+id/Scissors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txt_myplay"
-        android:layout_alignStart="@+id/txt_myplay"
-        android:layout_below="@+id/txt_myplay"
-        android:text="@string/scissors" />
-
-    <Button
-        android:id="@+id/stone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/Scissors"
-        android:layout_alignRight="@+id/Scissors"
-        android:layout_below="@+id/Scissors"
-        android:layout_marginTop="26dp"
-        android:text="@string/stone" />
-
-    <Button
-        android:id="@+id/paper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/txt_myplay"
-        android:layout_alignRight="@+id/txt_myplay"
-        android:layout_below="@+id/stone"
-        android:layout_marginTop="28dp"
-        android:text="@string/paper" />
-
-    <TextView
-        android:id="@+id/txtComPlay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txt_com"
-        android:layout_alignStart="@+id/txt_com"
-        android:layout_below="@+id/Scissors"
-        android:textSize="30sp" />
-
     <TextView
         android:id="@+id/txtResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtComPlay"
-        android:layout_alignStart="@+id/txtComPlay"
-        android:layout_below="@+id/paper"
+
         android:text="@string/result"
-        android:textSize="20sp"  />
+        android:textSize="20sp"
+        android:layout_below="@+id/imgBtnPaper"
+        android:layout_alignRight="@+id/imgViewComPlay"
+        android:layout_alignEnd="@+id/imgViewComPlay" />
+
+    <ImageView
+        android:id="@+id/imgViewComPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/stone"
+        android:layout_below="@+id/imgBtnScissors"
+        android:layout_alignRight="@+id/txt_com"
+        android:layout_alignEnd="@+id/txt_com" />
+
+    <ImageButton
+        android:id="@+id/imgBtnScissors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/scissors"
+        android:layout_below="@+id/txtTitle"
+        android:layout_alignLeft="@+id/txt_myplay"
+        android:layout_alignStart="@+id/txt_myplay"
+        android:layout_marginTop="28dp" />
+
+    <ImageButton
+        android:id="@+id/imgBtnStone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/stone"
+        android:layout_below="@+id/imgBtnScissors"
+        android:layout_alignLeft="@+id/imgBtnScissors"
+        android:layout_alignStart="@+id/imgBtnScissors" />
+
+    <ImageButton
+        android:id="@+id/imgBtnPaper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/paper"
+        android:layout_below="@+id/imgBtnStone"
+        android:layout_alignLeft="@+id/imgBtnStone"
+        android:layout_alignStart="@+id/imgBtnStone"
+        android:layout_marginTop="12dp" />
 
 
 </RelativeLayout>

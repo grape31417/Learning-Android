@@ -1,24 +1,28 @@
 package com.example.user.relativelayout;
 
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView mTxtComplay,mTxtResult;
-    private Button mSicssors,mStone,mPaper;
+    private TextView mTxtResult;
+    private ImageButton mSicssors,mStone,mPaper;
+    private ImageView mTxtComplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mTxtComplay=(TextView)findViewById(R.id.txtComPlay);
+        mTxtComplay=(ImageView) findViewById(R.id.imgViewComPlay);
         mTxtResult=(TextView)findViewById(R.id.txtResult);
-        mSicssors=(Button)findViewById(R.id.Scissors);
-        mPaper=(Button)findViewById(R.id.paper);
-        mStone=(Button)findViewById(R.id.stone);
+        mSicssors=(ImageButton)findViewById(R.id.imgBtnScissors);
+        mPaper=(ImageButton)findViewById(R.id.imgBtnPaper);
+        mStone=(ImageButton)findViewById(R.id.imgBtnStone);
 
         mSicssors.setOnClickListener(btnSicssors);
         mStone.setOnClickListener(btnStone);
@@ -31,17 +35,17 @@ public class MainActivity extends AppCompatActivity {
             int iComPlay =(int)(Math.random()*3+1);//1:剪刀 2:石頭 3:布
             if(iComPlay==1)
             {
-                mTxtComplay.setText(R.string.scissors);
+                mTxtComplay.setImageResource(R.drawable.scissors);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.draw));
             }
            else if(iComPlay==2)
             {
-                mTxtComplay.setText(R.string.stone);
+                mTxtComplay.setImageResource(R.drawable.stone);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.you_lose));
             }
             else
             {
-                mTxtComplay.setText(R.string.paper);
+                mTxtComplay.setImageResource(R.drawable.paper);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.you_win));
             }
         }
@@ -52,17 +56,17 @@ public class MainActivity extends AppCompatActivity {
             int iComPlay =(int)(Math.random()*3+1);//1:剪刀 2:石頭 3:布
             if(iComPlay==1)
             {
-                mTxtComplay.setText(R.string.scissors);
+                mTxtComplay.setImageResource(R.drawable.scissors);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.you_win));
             }
             else if(iComPlay==2)
             {
-                mTxtComplay.setText(R.string.stone);
+                mTxtComplay.setImageResource(R.drawable.stone);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.draw));
             }
             else
             {
-                mTxtComplay.setText(R.string.paper);
+                mTxtComplay.setImageResource(R.drawable.paper);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.you_lose));
             }
         }
@@ -74,17 +78,17 @@ public class MainActivity extends AppCompatActivity {
             int iComPlay =(int)(Math.random()*3+1);//1:剪刀 2:石頭 3:布
             if(iComPlay==1)
             {
-                mTxtComplay.setText(R.string.scissors);
+                mTxtComplay.setImageResource(R.drawable.scissors);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.you_lose));
             }
             else if(iComPlay==2)
             {
-                mTxtComplay.setText(R.string.stone);
+                mTxtComplay.setImageResource(R.drawable.stone);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.you_win));
             }
             else
             {
-                mTxtComplay.setText(R.string.paper);
+                mTxtComplay.setImageResource(R.drawable.paper);
                 mTxtResult.setText(getString(R.string.result)+getString(R.string.draw));
             }
         }
