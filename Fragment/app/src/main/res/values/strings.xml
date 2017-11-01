@@ -15,5 +15,11 @@
     <string name="player_win_set">玩家贏:</string>
     <string name="com_win_set">電腦贏:</string>
     <string name="draw_set">平手:</string>
+    <string name="btn_show_result1">顯示結果1</string>
+    <string name="btn_show_result2">顯示結果2</string>
+    <string name="btn_hidden_result">隱藏結果</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -77,4 +77,32 @@
         android:textColor="#0000FF"
         android:layout_marginTop="20dp" />
 
+    <Button
+        android:id="@+id/btnShowResult1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/txtResult"
+        android:text="@string/btn_show_result1" />
+
+    <Button
+        android:id="@+id/btnShowResult2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_show_result2"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btnHiddenResult"
+        android:layout_toEndOf="@+id/btnHiddenResult" />
+
+    <Button
+        android:id="@+id/btnHiddenResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_hidden_result"
+        android:layout_alignBaseline="@+id/btnShowResult2"
+        android:layout_alignBottom="@+id/btnShowResult2"
+        android:layout_toRightOf="@+id/btnShowResult1"
+        android:layout_toEndOf="@+id/btnShowResult1" />
+
 </RelativeLayout>
