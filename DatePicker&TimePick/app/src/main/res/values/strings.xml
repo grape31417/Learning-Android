@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DatePicker&amp;TimePick</string>
+    <string name="time_picker_dialog">TimePickDialog</string>
+    <string name="data_picker_dialog">DataPickDialog</string>
+</resources>
