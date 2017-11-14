@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="撥放音樂"
+        android:icon="@android:drawable/ic_media_ff" >
+        <menu>
+            <item android:id="@+id/menuItemPlayBackgroundMusic"
+                android:title="播放背景音樂"/>
+            <item android:id="@+id/menuItemStopBackgroundMusic"
+                android:title="停止播放" />
+        </menu>
+    </item>
+    <item android:id="@+id/menuItemAbout"
+        android:title="關於"
+        android:icon="@android:drawable/ic_dialog_info"
+        app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/menuItemExit"
+        android:title="離開"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/menuItemRegion"
+        android:title="選擇地區"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"
+        app:actionLayout="@layout/select_region"/>
+    <item android:id="@+id/menuItemSearch"
+        android:title="搜尋"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.widget.SearchView" />
+
+</menu>
