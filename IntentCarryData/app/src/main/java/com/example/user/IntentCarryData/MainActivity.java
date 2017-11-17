@@ -1,8 +1,10 @@
 package com.example.user.IntentCarryData;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,12 +12,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private TextView mTxtResult;
     private ImageButton mSicssors,mStone,mPaper;
     private ImageView mTxtComplay;
-    private Button mBtnShowResult;
+    private Button mBtnShowResult,
+            mBtnSaveResult,
+            mBtnLoadResult,
+            mBtnClearResult;
     private int miCountSet = 0,
             miCountPlayerWin = 0,
             miCountComWin = 0,
@@ -38,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
         mStone.setOnClickListener(btnStone);
         mPaper.setOnClickListener(btnPaper);
         mBtnShowResult.setOnClickListener(btnShowResult);
+
+        mBtnSaveResult = (Button)findViewById(R.id.btnSaveResult);
+        mBtnLoadResult = (Button)findViewById(R.id.btnLoadResult);
+        mBtnClearResult = (Button)findViewById(R.id.btnClearResult);
+
+        mBtnSaveResult.setOnClickListener(btnSaveResultOnClick);
+        mBtnLoadResult.setOnClickListener(btnLoadResultOnClick);
+        mBtnClearResult.setOnClickListener(btnClearResultOnClick);
 
     }
 
@@ -175,4 +189,50 @@ public class MainActivity extends AppCompatActivity {
         notiMgr.notify(NOTI_ID,noti);
 
     }
+
+    private View.OnClickListener btnSaveResultOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            SharedPreferences gameResultData =
+                    getSharedPreferences("GAME_RESULT", 0);
+
+            gameResultData.edit()
+                    .putInt("COUNT_SET", miCountSet)
+                    .putInt("COUNT_PLAYER_WIN", miCountPlayerWin)
+                    .putInt("COUNT_COM_WIN", miCountComWin)
+                    .putInt("COUNT_DRAW", miCountDraw)
+                    .commit();
+
+            Toast.makeText(MainActivity.this, "儲存完成", Toast.LENGTH_LONG)
+                    .show();
+        }
+    };
+
+    private View.OnClickListener btnLoadResultOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            SharedPreferences gameResultData =
+                    getSharedPreferences("GAME_RESULT", 0);
+
+            miCountSet = gameResultData.getInt("COUNT_SET", 0);
+            miCountPlayerWin = gameResultData.getInt("COUNT_PLAYER_WIN", 0);
+            miCountComWin = gameResultData.getInt("COUNT_COM_WIN", 0);
+            miCountDraw = gameResultData.getInt("COUNT_DRAW", 0);
+
+            Toast.makeText(MainActivity.this, "載入完成", Toast.LENGTH_LONG)
+                    .show();
+        }
+    };
+
+    private View.OnClickListener btnClearResultOnClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            SharedPreferences gameResultData =
+                    getSharedPreferences("GAME_RESULT", 0);
+
+            gameResultData.edit()
+                    .clear()
+                    .commit();
+
+            Toast.makeText(MainActivity.this, "清除完成", Toast.LENGTH_LONG)
+                    .show();
+        }
+    };
 }
