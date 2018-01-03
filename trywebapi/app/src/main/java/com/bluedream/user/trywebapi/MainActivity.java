@@ -2,6 +2,7 @@ package com.bluedream.user.trywebapi;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Xml;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +23,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 
+@SuppressWarnings("Since15")
 public class MainActivity extends AppCompatActivity {
     TextView AAA;
     EditText name, job;
@@ -79,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     CCC = null;
-                    CCC= response.body().string();
+                    ccc= response.body();
                     try {
                         JSONObject responseJSON = new JSONObject(CCC);
                         str=responseJSON.getString("message");
