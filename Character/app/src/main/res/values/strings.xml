@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Character</string>
+    <string-array name="wepon_list">
+        <item>斧</item>
+        <item>弓</item>
+        <item>長劍</item>
+        <item>刀</item>
+    </string-array>
+    <string-array name="chacter_list">
+        <item>國王</item>
+        <item>皇后</item>
+        <item>巨人</item>
+        <item>騎士</item>
+    </string-array>
+</resources>
